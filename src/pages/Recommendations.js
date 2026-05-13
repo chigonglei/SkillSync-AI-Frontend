@@ -304,7 +304,7 @@ function Recommendations() {
                 <div style={styles.avatar}>{match.name?.charAt(0) || "U"}</div>
                 <div>
                   <div style={styles.name}>{match.name || "User"}</div>
-                  <div style={styles.role}>Skill Seeker</div>
+                  <div style={styles.role}></div>
                 </div>
               </div>
 

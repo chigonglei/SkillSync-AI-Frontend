@@ -23,7 +23,7 @@ function SignIn() {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/signin",
+        "https://skillsync-ai-backend-pd4t.onrender.com/api/auth/signin",
         {
           email,
           password,

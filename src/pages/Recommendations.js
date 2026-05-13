@@ -11,41 +11,42 @@ function Recommendations() {
     container: {
       minHeight: "100vh",
       background:
-        "radial-gradient(circle at top, #1e293b 0%, #020617 45%, #000 100%)",
+        "linear-gradient(to bottom, #020617 0%, #000814 40%, #000 100%)",
+      padding: "60px 25px 100px",
       color: "#fff",
-      padding: "40px 25px",
+      fontFamily: "Inter, sans-serif",
       position: "relative",
       overflow: "hidden",
-      fontFamily: "Arial, sans-serif",
     },
 
     glow1: {
       position: "absolute",
-      width: "350px",
-      height: "350px",
-      borderRadius: "50%",
+      width: "400px",
+      height: "400px",
       background: "#2563eb",
-      filter: "blur(140px)",
+      borderRadius: "50%",
+      filter: "blur(160px)",
       top: "-100px",
       left: "-100px",
-      opacity: 0.35,
+      opacity: 0.22,
     },
 
     glow2: {
       position: "absolute",
-      width: "320px",
-      height: "320px",
-      borderRadius: "50%",
+      width: "350px",
+      height: "350px",
       background: "#7c3aed",
-      filter: "blur(140px)",
-      bottom: "-120px",
-      right: "-120px",
-      opacity: 0.3,
+      borderRadius: "50%",
+      filter: "blur(150px)",
+      bottom: "-100px",
+      right: "-100px",
+      opacity: 0.18,
     },
 
     header: {
       textAlign: "center",
-      marginBottom: "60px",
+      maxWidth: "900px",
+      margin: "0 auto 70px",
       position: "relative",
       zIndex: 2,
     },
@@ -54,18 +55,22 @@ function Recommendations() {
       display: "inline-block",
       padding: "10px 18px",
       borderRadius: "999px",
-      background: "rgba(59,130,246,0.12)",
-      border: "1px solid rgba(59,130,246,0.3)",
+      background:
+        "rgba(37,99,235,0.15)",
+      border:
+        "1px solid rgba(96,165,250,0.35)",
       color: "#93c5fd",
       fontSize: "14px",
-      marginBottom: "22px",
       fontWeight: "600",
+      marginBottom: "24px",
     },
 
     title: {
-      fontSize: "58px",
-      fontWeight: "800",
-      marginBottom: "18px",
+      fontSize: "64px",
+      lineHeight: "74px",
+      fontWeight: "900",
+      letterSpacing: "-2px",
+      marginBottom: "22px",
       background:
         "linear-gradient(to right, #fff, #60a5fa)",
       WebkitBackgroundClip: "text",
@@ -74,85 +79,73 @@ function Recommendations() {
 
     subtitle: {
       color: "#94a3b8",
-      fontSize: "18px",
-      lineHeight: "32px",
-      maxWidth: "750px",
-      margin: "0 auto",
+      fontSize: "19px",
+      lineHeight: "34px",
     },
 
     grid: {
+      maxWidth: "1300px",
+      margin: "0 auto",
       display: "grid",
       gridTemplateColumns:
-        "repeat(auto-fit, minmax(380px, 420px))",
-      justifyContent: "center",
-      gap: "28px",
+        "repeat(auto-fit,minmax(520px,1fr))",
+      gap: "30px",
       position: "relative",
       zIndex: 2,
     },
 
     card: {
-      width: "100%",
-      maxWidth: "420px",
-      background: "rgba(255,255,255,0.05)",
-      border: "1px solid rgba(255,255,255,0.08)",
-      backdropFilter: "blur(18px)",
-      borderRadius: "30px",
-      padding: "28px",
-      position: "relative",
-      overflow: "hidden",
-      transition: "0.4s",
-      boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
-    },
-
-    topGlow: {
-      position: "absolute",
-      width: "180px",
-      height: "180px",
       background:
-        "linear-gradient(to right, #2563eb, #7c3aed)",
-      borderRadius: "50%",
-      filter: "blur(80px)",
-      top: "-90px",
-      right: "-90px",
-      opacity: 0.25,
+        "rgba(255,255,255,0.04)",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      borderRadius: "34px",
+      padding: "28px",
+      backdropFilter: "blur(20px)",
+      transition: "0.35s",
+      boxShadow:
+        "0 25px 80px rgba(0,0,0,0.45)",
+      cursor: "pointer",
     },
 
-    topRow: {
+    topSection: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "flex-start",
-      marginBottom: "24px",
+      marginBottom: "28px",
+      gap: "20px",
     },
 
-    userSection: {
+    profileSection: {
       display: "flex",
-      gap: "16px",
+      gap: "18px",
       alignItems: "center",
     },
 
     avatar: {
-      width: "72px",
-      height: "72px",
-      borderRadius: "24px",
+      width: "82px",
+      height: "82px",
+      borderRadius: "26px",
       background:
         "linear-gradient(to right, #2563eb, #7c3aed)",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: "28px",
+      fontSize: "34px",
       fontWeight: "800",
       color: "#fff",
       boxShadow:
-        "0 12px 30px rgba(59,130,246,0.4)",
+        "0 12px 35px rgba(59,130,246,0.35)",
     },
 
     name: {
-      fontSize: "28px",
+      fontSize: "34px",
       fontWeight: "800",
       marginBottom: "6px",
     },
 
     role: {
+      color: "#60a5fa",
       fontSize: "13px",
       textTransform: "uppercase",
       letterSpacing: "1px",
@@ -160,112 +153,119 @@ function Recommendations() {
     },
 
     scoreBox: {
-      minWidth: "85px",
-      height: "85px",
-      borderRadius: "24px",
-      background: "rgba(255,255,255,0.05)",
-      border: "1px solid rgba(255,255,255,0.08)",
+      minWidth: "95px",
+      height: "95px",
+      borderRadius: "26px",
+      background:
+        "rgba(255,255,255,0.05)",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
       display: "flex",
+      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      flexDirection: "column",
     },
 
-    scoreText: {
-      fontSize: "26px",
-      fontWeight: "800",
+    score: {
+      fontSize: "34px",
+      fontWeight: "900",
       color: "#22c55e",
     },
 
-    scoreLabel: {
+    scoreText: {
       color: "#94a3b8",
-      fontSize: "12px",
+      fontSize: "13px",
     },
 
-    badgeContainer: {
+    tags: {
       display: "flex",
       gap: "12px",
       flexWrap: "wrap",
-      marginBottom: "22px",
+      marginBottom: "24px",
     },
 
-    skillBadge: {
-      background: "rgba(255,255,255,0.05)",
-      border: "1px solid rgba(255,255,255,0.08)",
+    tag: {
       padding: "10px 16px",
       borderRadius: "999px",
-      fontSize: "13px",
+      background:
+        "rgba(255,255,255,0.04)",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
       color: "#cbd5e1",
+      fontSize: "13px",
     },
 
     summary: {
       color: "#d1d5db",
-      lineHeight: "30px",
-      fontSize: "15px",
-      marginBottom: "25px",
+      lineHeight: "32px",
+      fontSize: "16px",
+      marginBottom: "28px",
     },
 
-    infoBox: {
-      background: "rgba(255,255,255,0.03)",
-      border: "1px solid rgba(255,255,255,0.05)",
-      borderRadius: "20px",
-      padding: "20px",
-      marginBottom: "24px",
+    infoGrid: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: "18px",
+      marginBottom: "28px",
     },
 
-    infoRow: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginBottom: "14px",
-      color: "#cbd5e1",
-      fontSize: "15px",
+    infoCard: {
+      background:
+        "rgba(255,255,255,0.04)",
+      border:
+        "1px solid rgba(255,255,255,0.06)",
+      borderRadius: "22px",
+      padding: "18px",
     },
 
-    sectionTitle: {
-      fontSize: "18px",
+    infoLabel: {
+      color: "#94a3b8",
+      fontSize: "13px",
+      marginBottom: "10px",
+    },
+
+    infoValue: {
+      fontSize: "20px",
       fontWeight: "700",
-      marginBottom: "16px",
-      color: "#60a5fa",
     },
 
     aiBox: {
       background:
         "linear-gradient(to right, rgba(37,99,235,0.12), rgba(124,58,237,0.12))",
-      border: "1px solid rgba(255,255,255,0.06)",
-      borderRadius: "22px",
-      padding: "20px",
-      marginBottom: "26px",
+      border:
+        "1px solid rgba(255,255,255,0.06)",
+      borderRadius: "24px",
+      padding: "22px",
+      marginBottom: "30px",
+    },
+
+    aiTitle: {
+      fontSize: "18px",
+      fontWeight: "700",
+      color: "#60a5fa",
+      marginBottom: "16px",
     },
 
     reason: {
       color: "#dbeafe",
-      marginBottom: "12px",
-      lineHeight: "26px",
-      fontSize: "14px",
+      marginBottom: "14px",
+      lineHeight: "28px",
+      fontSize: "15px",
     },
 
     button: {
       width: "100%",
-      padding: "18px",
-      borderRadius: "18px",
+      padding: "20px",
+      borderRadius: "20px",
       border: "none",
       background:
         "linear-gradient(to right, #2563eb, #7c3aed)",
       color: "#fff",
-      fontWeight: "700",
       fontSize: "17px",
+      fontWeight: "700",
       cursor: "pointer",
-      transition: "0.3s",
       boxShadow:
-        "0 12px 30px rgba(59,130,246,0.35)",
-    },
-
-    empty: {
-      textAlign: "center",
-      marginTop: "140px",
-      color: "#94a3b8",
-      position: "relative",
-      zIndex: 2,
+        "0 12px 35px rgba(59,130,246,0.35)",
     },
 
   };
@@ -288,321 +288,224 @@ function Recommendations() {
         </h1>
 
         <p style={styles.subtitle}>
-          SkillSync AI analyzed compatibility,
-          skills, pricing, learning styles,
-          and availability to generate your
-          best matches instantly.
+          SkillSync AI analyzed learning
+          compatibility, pricing,
+          availability, teaching mode,
+          and collaboration preferences
+          to generate the best mentor
+          matches for you.
         </p>
 
       </div>
 
-      {
+      <div style={styles.grid}>
 
-        matches.length === 0
+        {
 
-        ? (
+          matches.map((match, index) => (
 
-          <div style={styles.empty}>
+            <div
+              key={index}
+              style={styles.card}
 
-            <h2>
-              No AI Matches Found
-            </h2>
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "translateY(-10px)";
+                e.currentTarget.style.border =
+                  "1px solid rgba(96,165,250,0.45)";
+              }}
 
-            <p style={{ marginTop: "14px" }}>
-              Try adjusting your preferences
-              and search again.
-            </p>
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform =
+                  "translateY(0px)";
+                e.currentTarget.style.border =
+                  "1px solid rgba(255,255,255,0.08)";
+              }}
+            >
 
-          </div>
+              <div style={styles.topSection}>
 
-        )
+                <div style={styles.profileSection}>
 
-        : (
-
-          <div style={styles.grid}>
-
-            {
-
-              matches.map((match, index) => (
-
-                <div
-                  key={index}
-                  style={styles.card}
-
-                  onMouseEnter={(e) => {
-
-                    e.currentTarget.style.transform =
-                      "translateY(-8px)";
-
-                    e.currentTarget.style.border =
-                      "1px solid rgba(96,165,250,0.5)";
-
-                  }}
-
-                  onMouseLeave={(e) => {
-
-                    e.currentTarget.style.transform =
-                      "translateY(0px)";
-
-                    e.currentTarget.style.border =
-                      "1px solid rgba(255,255,255,0.08)";
-
-                  }}
-                >
-
-                  <div style={styles.topGlow}></div>
-
-                  <div style={styles.topRow}>
-
-                    <div style={styles.userSection}>
-
-                      <div style={styles.avatar}>
-
-                        {
-                          match.name?.charAt(0)
-                        }
-
-                      </div>
-
-                      <div>
-
-                        <div style={styles.name}>
-                          {match.name}
-                        </div>
-
-                        <div
-                          style={{
-                            ...styles.role,
-
-                            color:
-                              match.role === "mentor"
-                              || match.role === "teacher"
-
-                              ? "#22c55e"
-
-                              : "#60a5fa",
-                          }}
-                        >
-
-                          {
-
-                            match.role === "mentor"
-                            || match.role === "teacher"
-
-                            ? "Mentor / Teacher"
-
-                            : "Skill Seeker"
-
-                          }
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <div style={styles.scoreBox}>
-
-                      <div style={styles.scoreText}>
-                        {
-                          match.score || 90
-                        }%
-                      </div>
-
-                      <div style={styles.scoreLabel}>
-                        Match
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <div style={styles.badgeContainer}>
-
-                    <div style={styles.skillBadge}>
-                      {match.skill || "General"}
-                    </div>
-
-                    <div style={styles.skillBadge}>
-                      {
-                        match.preferred_mode
-                        || "Online"
-                      }
-                    </div>
-
-                    <div style={styles.skillBadge}>
-                      {
-                        match.availability
-                        || "Flexible"
-                      }
-                    </div>
-
-                  </div>
-
-                  <div style={styles.summary}>
+                  <div style={styles.avatar}>
                     {
-                      match.summary
-                      || "AI found this profile highly compatible with your preferences and learning goals."
+                      match.name?.charAt(0)
                     }
                   </div>
 
-                  <div style={styles.infoBox}>
+                  <div>
 
-                    <div style={styles.infoRow}>
-
-                      <span>
-                        Skill
-                      </span>
-
-                      <strong>
-                        {
-                          match.skill
-                          || "General"
-                        }
-                      </strong>
-
+                    <div style={styles.name}>
+                      {match.name}
                     </div>
 
-                    <div style={styles.infoRow}>
-
-                      <span>
-
-                        {
-
-                          match.role === "mentor"
-                          || match.role === "teacher"
-
-                          ? "Teaching Fee"
-
-                          : "Budget"
-
-                        }
-
-                      </span>
-
-                      <strong>
-
-                        ₹{
-                          match.price
-                          || "Flexible"
-                        }
-
-                      </strong>
-
-                    </div>
-
-                    <div
-                      style={{
-                        ...styles.infoRow,
-                        marginBottom: 0,
-                      }}
-                    >
-
-                      <span>
-                        Location
-                      </span>
-
-                      <strong>
-                        {
-                          match.location
-                          || "Remote"
-                        }
-                      </strong>
-
+                    <div style={styles.role}>
+                      Skill Seeker
                     </div>
 
                   </div>
-
-                  <div style={styles.sectionTitle}>
-                    AI Compatibility Insights
-                  </div>
-
-                  <div style={styles.aiBox}>
-
-                    {
-
-                      match.reasons?.length > 0
-
-                      ? (
-
-                        match.reasons.map(
-                          (reason, i) => (
-
-                            <div
-                              key={i}
-                              style={styles.reason}
-                            >
-
-                              ✨ {reason}
-
-                            </div>
-
-                          )
-                        )
-
-                      )
-
-                      : (
-
-                        <div style={styles.reason}>
-
-                          ✨ High skill compatibility
-
-                          <br /><br />
-
-                          ✨ Matching availability
-
-                          <br /><br />
-
-                          ✨ Suitable pricing and
-                          preferred learning mode
-
-                        </div>
-
-                      )
-
-                    }
-
-                  </div>
-
-                  <Link
-                    to="/chat"
-                    state={{
-                      user: match,
-                    }}
-                    style={{
-                      textDecoration: "none",
-                    }}
-                  >
-
-                    <button style={styles.button}>
-
-                      {
-
-                        match.role === "mentor"
-                        || match.role === "teacher"
-
-                        ? "Start Learning →"
-
-                        : "Connect Now →"
-
-                      }
-
-                    </button>
-
-                  </Link>
 
                 </div>
 
-              ))
+                <div style={styles.scoreBox}>
 
-            }
+                  <div style={styles.score}>
+                    {
+                      match.score || 90
+                    }%
+                  </div>
 
-          </div>
+                  <div style={styles.scoreText}>
+                    Match
+                  </div>
 
-        )
+                </div>
 
-      }
+              </div>
+
+              <div style={styles.tags}>
+
+                <div style={styles.tag}>
+                  {match.skill || "General"}
+                </div>
+
+                <div style={styles.tag}>
+                  {
+                    match.preferred_mode
+                    || "Online"
+                  }
+                </div>
+
+                <div style={styles.tag}>
+                  {
+                    match.availability
+                    || "Flexible"
+                  }
+                </div>
+
+              </div>
+
+              <div style={styles.summary}>
+                {
+                  match.summary
+                  || "AI identified this profile as highly compatible based on skill relevance, schedule overlap, and learning preferences."
+                }
+              </div>
+
+              <div style={styles.infoGrid}>
+
+                <div style={styles.infoCard}>
+
+                  <div style={styles.infoLabel}>
+                    Skill
+                  </div>
+
+                  <div style={styles.infoValue}>
+                    {
+                      match.skill
+                      || "General"
+                    }
+                  </div>
+
+                </div>
+
+                <div style={styles.infoCard}>
+
+                  <div style={styles.infoLabel}>
+                    Budget
+                  </div>
+
+                  <div style={styles.infoValue}>
+                    ₹{
+                      match.price
+                      || "Flexible"
+                    }
+                  </div>
+
+                </div>
+
+                <div style={styles.infoCard}>
+
+                  <div style={styles.infoLabel}>
+                    Location
+                  </div>
+
+                  <div style={styles.infoValue}>
+                    {
+                      match.location
+                      || "Remote"
+                    }
+                  </div>
+
+                </div>
+
+                <div style={styles.infoCard}>
+
+                  <div style={styles.infoLabel}>
+                    Mode
+                  </div>
+
+                  <div style={styles.infoValue}>
+                    {
+                      match.preferred_mode
+                      || "Online"
+                    }
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div style={styles.aiBox}>
+
+                <div style={styles.aiTitle}>
+                  AI Compatibility Insights
+                </div>
+
+                {
+
+                  match.reasons?.map(
+                    (reason, i) => (
+
+                      <div
+                        key={i}
+                        style={styles.reason}
+                      >
+
+                        ✨ {reason}
+
+                      </div>
+
+                    )
+                  )
+
+                }
+
+              </div>
+
+              <Link
+                to="/chat"
+                state={{
+                  user: match,
+                }}
+                style={{
+                  textDecoration: "none",
+                }}
+              >
+
+                <button style={styles.button}>
+                  Connect Now →
+                </button>
+
+              </Link>
+
+            </div>
+
+          ))
+
+        }
+
+      </div>
 
     </div>
 

@@ -493,7 +493,9 @@ function Recommendations() {
                 }}
               >
 
-                <button style={styles.button}>
+                <button 
+                // style={styles.button}
+                >
                   Connect Now →
                 </button>
 

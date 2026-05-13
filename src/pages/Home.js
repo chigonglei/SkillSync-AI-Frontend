@@ -4,6 +4,8 @@ function Home() {
 
   const navigate = useNavigate();
 
+  const isMobile = window.innerWidth < 768;
+
   const styles = {
 
     container: {
@@ -11,16 +13,19 @@ function Home() {
       background:
         "linear-gradient(to bottom, #020617 0%, #000814 40%, #000000 100%)",
       color: "#fff",
-      overflow: "hidden",
+      overflowX: "hidden",
       position: "relative",
-      padding: "30px 20px 120px",
+      width: "100%",
+      padding: isMobile
+        ? "16px 12px 70px"
+        : "30px 20px 120px",
       fontFamily: "Inter, Arial, sans-serif",
     },
 
     glow1: {
       position: "absolute",
-      width: "420px",
-      height: "420px",
+      width: isMobile ? "250px" : "420px",
+      height: isMobile ? "250px" : "420px",
       background: "#2563eb",
       borderRadius: "50%",
       filter: "blur(160px)",
@@ -31,8 +36,8 @@ function Home() {
 
     glow2: {
       position: "absolute",
-      width: "350px",
-      height: "350px",
+      width: isMobile ? "220px" : "350px",
+      height: isMobile ? "220px" : "350px",
       background: "#7c3aed",
       borderRadius: "50%",
       filter: "blur(150px)",
@@ -50,114 +55,190 @@ function Home() {
 
     heroSection: {
       display: "grid",
+
       gridTemplateColumns:
-        "repeat(auto-fit,minmax(380px,1fr))",
-      gap: "70px",
+        isMobile
+          ? "1fr"
+          : "repeat(auto-fit,minmax(380px,1fr))",
+
+      gap: isMobile ? "28px" : "70px",
+
       alignItems: "center",
+
+      width: "100%",
+
+      overflow: "hidden",
+
       background: "rgba(255,255,255,0.04)",
+
       border: "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "40px",
-      padding: "70px",
+
+      borderRadius: isMobile ? "22px" : "40px",
+
+      padding: isMobile
+        ? "22px 16px"
+        : "70px",
+
       backdropFilter: "blur(20px)",
+
       boxShadow:
         "0 30px 100px rgba(0,0,0,0.45)",
     },
 
     left: {
       maxWidth: "620px",
+      width: "100%",
     },
 
     badge: {
       display: "inline-flex",
       alignItems: "center",
       gap: "8px",
-      padding: "10px 18px",
+      padding: isMobile
+        ? "8px 14px"
+        : "10px 18px",
       borderRadius: "999px",
       background:
         "rgba(37,99,235,0.15)",
       border:
         "1px solid rgba(96,165,250,0.35)",
       color: "#93c5fd",
-      fontSize: "14px",
+      fontSize: isMobile ? "12px" : "14px",
       fontWeight: "600",
       marginBottom: "28px",
     },
 
     title: {
-      fontSize: "86px",
-      lineHeight: "92px",
+      fontSize: isMobile ? "52px" : "86px",
+
+      lineHeight: isMobile ? "58px" : "92px",
+
       fontWeight: "900",
+
       marginBottom: "24px",
-      letterSpacing: "-3px",
+
+      letterSpacing: isMobile ? "-1px" : "-3px",
+
       background:
         "linear-gradient(to right, #ffffff 10%, #60a5fa 90%)",
+
       WebkitBackgroundClip: "text",
+
       WebkitTextFillColor: "transparent",
     },
 
     subtitle: {
       color: "#cbd5e1",
-      fontSize: "20px",
-      lineHeight: "38px",
+
+      fontSize: isMobile ? "16px" : "20px",
+
+      lineHeight: isMobile ? "30px" : "38px",
+
       marginBottom: "40px",
+
       maxWidth: "560px",
     },
 
     buttonContainer: {
-      display: "flex",
-      gap: "18px",
-      flexWrap: "wrap",
-      marginBottom: "45px",
+      display: "grid",
+
+      gridTemplateColumns:
+        isMobile ? "1fr 1fr" : "auto auto",
+
+      gap: "12px",
+
+      marginBottom: "30px",
+
+      width: "100%",
     },
 
     primaryButton: {
-      padding: "18px 36px",
-      borderRadius: "18px",
+      width: "100%",
+
+      padding: isMobile
+        ? "16px 12px"
+        : "18px 36px",
+
+      borderRadius: "16px",
+
       border: "none",
+
       background:
         "linear-gradient(to right, #2563eb, #7c3aed)",
+
       color: "#fff",
-      fontSize: "17px",
+
+      fontSize: isMobile ? "15px" : "17px",
+
       cursor: "pointer",
+
       fontWeight: "700",
+
       boxShadow:
         "0 12px 35px rgba(59,130,246,0.4)",
+
       transition: "0.3s",
     },
 
     secondaryButton: {
-      padding: "18px 34px",
-      borderRadius: "18px",
+      width: "100%",
+
+      padding: isMobile
+        ? "16px 12px"
+        : "18px 34px",
+
+      borderRadius: "16px",
+
       border:
         "1px solid rgba(255,255,255,0.12)",
+
       background:
         "rgba(255,255,255,0.04)",
+
       color: "#fff",
-      fontSize: "17px",
+
+      fontSize: isMobile ? "15px" : "17px",
+
       cursor: "pointer",
+
       fontWeight: "700",
+
       backdropFilter: "blur(12px)",
     },
 
     statsContainer: {
-      display: "flex",
-      gap: "18px",
-      flexWrap: "wrap",
+      display: "grid",
+
+      gridTemplateColumns:
+        isMobile
+          ? "1fr 1fr"
+          : "repeat(3,1fr)",
+
+      gap: "14px",
+
+      width: "100%",
     },
 
     statBox: {
-      minWidth: "150px",
       background:
         "rgba(255,255,255,0.04)",
+
       border:
         "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "22px",
-      padding: "22px",
+
+      borderRadius: "20px",
+
+      padding: isMobile
+        ? "18px 14px"
+        : "22px",
+
       backdropFilter: "blur(14px)",
+
+      minWidth: 0,
     },
 
     statNumber: {
-      fontSize: "34px",
+      fontSize: isMobile ? "28px" : "34px",
       fontWeight: "900",
       marginBottom: "6px",
     },
@@ -170,18 +251,32 @@ function Home() {
     right: {
       display: "flex",
       justifyContent: "center",
+      width: "100%",
     },
 
     dashboard: {
       width: "100%",
-      maxWidth: "460px",
+
+      maxWidth: "100%",
+
+      overflow: "hidden",
+
       background:
         "rgba(255,255,255,0.05)",
+
       border:
         "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "34px",
-      padding: "26px",
+
+      borderRadius: isMobile
+        ? "22px"
+        : "34px",
+
+      padding: isMobile
+        ? "16px"
+        : "26px",
+
       backdropFilter: "blur(20px)",
+
       boxShadow:
         "0 30px 90px rgba(0,0,0,0.55)",
     },
@@ -194,8 +289,8 @@ function Home() {
     },
 
     dashboardLogo: {
-      width: "52px",
-      height: "52px",
+      width: isMobile ? "44px" : "52px",
+      height: isMobile ? "44px" : "52px",
       borderRadius: "16px",
       background:
         "linear-gradient(to right, #2563eb, #8b5cf6)",
@@ -203,65 +298,79 @@ function Home() {
       alignItems: "center",
       justifyContent: "center",
       fontWeight: "800",
-      fontSize: "20px",
+      fontSize: isMobile ? "18px" : "20px",
     },
 
     active: {
       color: "#22c55e",
       fontWeight: "700",
-      fontSize: "14px",
+      fontSize: isMobile ? "12px" : "14px",
     },
 
     featureCard: {
       background:
         "linear-gradient(to right, #312e81, #6d28d9)",
       borderRadius: "24px",
-      padding: "24px",
+      padding: isMobile ? "18px" : "24px",
       marginBottom: "18px",
     },
 
     featureTitle: {
-      fontSize: "24px",
+      fontSize: isMobile ? "20px" : "24px",
       fontWeight: "800",
       marginBottom: "14px",
     },
 
     featureText: {
       color: "#dbeafe",
-      lineHeight: "30px",
-      fontSize: "15px",
+      lineHeight: isMobile ? "28px" : "30px",
+      fontSize: isMobile ? "14px" : "15px",
     },
 
     miniGrid: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "14px",
+
+      gridTemplateColumns:
+        isMobile ? "1fr 1fr" : "1fr 1fr",
+
+      gap: "12px",
+
+      width: "100%",
     },
 
     miniCard: {
       background:
         "rgba(255,255,255,0.04)",
+
       border:
         "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "20px",
-      padding: "18px",
+
+      borderRadius: "18px",
+
+      padding: isMobile
+        ? "14px"
+        : "18px",
+
       transition: "0.3s",
+
       cursor: "pointer",
+
+      minWidth: 0,
     },
 
     miniTitle: {
       color: "#94a3b8",
-      fontSize: "14px",
+      fontSize: isMobile ? "12px" : "14px",
       marginBottom: "10px",
     },
 
     miniValue: {
-      fontSize: "24px",
+      fontSize: isMobile ? "20px" : "24px",
       fontWeight: "800",
     },
 
     problemSection: {
-      marginTop: "140px",
+      marginTop: isMobile ? "80px" : "140px",
       position: "relative",
       zIndex: 2,
     },
@@ -275,44 +384,64 @@ function Home() {
       display: "inline-flex",
       alignItems: "center",
       gap: "8px",
-      padding: "10px 18px",
+      padding: isMobile
+        ? "8px 14px"
+        : "10px 18px",
       borderRadius: "999px",
       background:
         "rgba(37,99,235,0.15)",
       border:
         "1px solid rgba(96,165,250,0.35)",
       color: "#93c5fd",
-      fontSize: "14px",
+      fontSize: isMobile ? "12px" : "14px",
       fontWeight: "600",
       marginBottom: "26px",
     },
 
     problemTitle: {
-      fontSize: "64px",
-      lineHeight: "78px",
+      fontSize: isMobile ? "42px" : "64px",
+
+      lineHeight: isMobile ? "52px" : "78px",
+
       fontWeight: "900",
+
       letterSpacing: "-2px",
+
       marginBottom: "20px",
+
       background:
         "linear-gradient(to right, #fff, #60a5fa)",
+
       WebkitBackgroundClip: "text",
+
       WebkitTextFillColor: "transparent",
     },
 
     problemSubtitle: {
       color: "#94a3b8",
-      fontSize: "20px",
-      lineHeight: "36px",
+
+      fontSize: isMobile ? "16px" : "20px",
+
+      lineHeight: isMobile ? "30px" : "36px",
+
       maxWidth: "760px",
     },
 
     problemGrid: {
       maxWidth: "1280px",
+
       margin: "0 auto",
+
       display: "grid",
+
       gridTemplateColumns:
-        "repeat(auto-fit,minmax(260px,1fr))",
-      gap: "28px",
+        isMobile
+          ? "1fr"
+          : "repeat(auto-fit,minmax(260px,1fr))",
+
+      gap: "20px",
+
+      width: "100%",
     },
 
     problemCard: {
@@ -321,7 +450,7 @@ function Home() {
       border:
         "1px solid rgba(255,255,255,0.08)",
       borderRadius: "30px",
-      padding: "32px",
+      padding: isMobile ? "24px" : "32px",
       transition: "0.35s",
       backdropFilter: "blur(18px)",
       boxShadow:
@@ -330,15 +459,15 @@ function Home() {
     },
 
     problemIcon: {
-      width: "68px",
-      height: "68px",
+      width: isMobile ? "58px" : "68px",
+      height: isMobile ? "58px" : "68px",
       borderRadius: "22px",
       background:
         "linear-gradient(to right, #2563eb, #7c3aed)",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: "30px",
+      fontSize: isMobile ? "24px" : "30px",
       marginBottom: "26px",
       boxShadow:
         "0 10px 30px rgba(59,130,246,0.3)",
@@ -346,8 +475,8 @@ function Home() {
 
     problemText: {
       color: "#cbd5e1",
-      lineHeight: "34px",
-      fontSize: "16px",
+      lineHeight: isMobile ? "30px" : "34px",
+      fontSize: isMobile ? "15px" : "16px",
     },
 
   };
@@ -357,6 +486,7 @@ function Home() {
     <div style={styles.container}>
 
       <div style={styles.glow1}></div>
+
       <div style={styles.glow2}></div>
 
       <div style={styles.heroWrapper}>
@@ -479,19 +609,7 @@ function Home() {
 
               <div style={styles.miniGrid}>
 
-                <div
-                  style={styles.miniCard}
-
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-6px)";
-                  }}
-
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(0px)";
-                  }}
-                >
+                <div style={styles.miniCard}>
 
                   <div style={styles.miniTitle}>
                     Flexible Learning
@@ -503,19 +621,7 @@ function Home() {
 
                 </div>
 
-                <div
-                  style={styles.miniCard}
-
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-6px)";
-                  }}
-
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(0px)";
-                  }}
-                >
+                <div style={styles.miniCard}>
 
                   <div style={styles.miniTitle}>
                     Right Mentor
@@ -527,19 +633,7 @@ function Home() {
 
                 </div>
 
-                <div
-                  style={styles.miniCard}
-
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-6px)";
-                  }}
-
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(0px)";
-                  }}
-                >
+                <div style={styles.miniCard}>
 
                   <div style={styles.miniTitle}>
                     Save Opportunities
@@ -551,19 +645,7 @@ function Home() {
 
                 </div>
 
-                <div
-                  style={styles.miniCard}
-
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(-6px)";
-                  }}
-
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform =
-                      "translateY(0px)";
-                  }}
-                >
+                <div style={styles.miniCard}>
 
                   <div style={styles.miniTitle}>
                     Monetize Skills
@@ -644,26 +726,6 @@ function Home() {
               <div
                 key={index}
                 style={styles.problemCard}
-
-                onMouseEnter={(e) => {
-
-                  e.currentTarget.style.transform =
-                    "translateY(-10px)";
-
-                  e.currentTarget.style.border =
-                    "1px solid rgba(96,165,250,0.45)";
-
-                }}
-
-                onMouseLeave={(e) => {
-
-                  e.currentTarget.style.transform =
-                    "translateY(0px)";
-
-                  e.currentTarget.style.border =
-                    "1px solid rgba(255,255,255,0.08)";
-
-                }}
               >
 
                 <div style={styles.problemIcon}>

@@ -116,7 +116,7 @@ function FindMatch() {
 
               ? "Find Your Students"
 
-              : "Find Your Perfect Mentor"
+              : "Find Your Perfect Match"
             }
           </h1>
 
@@ -151,9 +151,9 @@ function FindMatch() {
             placeholder={
               userRole === "mentor"
 
-              ? "Skill You Teach"
+              ? "Skills"
 
-              : "Skill You Want To Learn"
+              : "Skills"
             }
             onChange={handleChange}
           />
@@ -193,9 +193,9 @@ function FindMatch() {
             placeholder={
               userRole === "mentor"
 
-              ? "Teaching Fee"
+              ? "Fees"
 
-              : "Budget"
+              : "Fees"
             }
             onChange={handleChange}
           />
@@ -238,9 +238,9 @@ function FindMatch() {
 
             : userRole === "mentor"
 
-            ? "Find Students →"
+            ? "Find Match →"
 
-            : "Find Mentors →"
+            : "Find Match →"
           }
 
         </button>
